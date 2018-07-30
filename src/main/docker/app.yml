@@ -1,0 +1,15 @@
+version: '2'
+services:
+    vdemo8-app:
+        image: vdemo8
+        environment:
+            # - _JAVA_OPTIONS=-Xmx512m -Xms256m
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://vdemo8-postgresql:5432/vdemo8
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    vdemo8-postgresql:
+        extends:
+            file: postgresql.yml
+            service: vdemo8-postgresql

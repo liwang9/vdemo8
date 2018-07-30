@@ -1,0 +1,11 @@
+version: '2'
+services:
+    vdemo8-postgresql:
+        image: postgres:10.4
+        # volumes:
+        #     - ~/volumes/jhipster/vdemo8/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=vdemo8
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432

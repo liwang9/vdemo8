@@ -1,0 +1,27 @@
+{
+    "name": "Equipment",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "room",
+            "otherEntityName": "room",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "equipment"
+        }
+    ],
+    "changelogDate": "20180730200711",
+    "entityTableName": "equipment",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

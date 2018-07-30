@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="room">
+            <h2><span>Room</span> {{room.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{room.name}}</span>
+                </dd>
+                <dt><span>Occupancy Limit</span></dt>
+                <dd>
+                    <span>{{room.occupancyLimit}}</span>
+                </dd>
+                <dt><span>Available</span></dt>
+                <dd>
+                    <span>{{room.available}}</span>
+                </dd>
+                <dt><span>Building</span></dt>
+                <dd>
+                    <div *ngIf="room.building">
+                        <a [routerLink]="['/building', room.building?.id, 'view']">{{room.building?.name}}</a>
+                    </div>
+                </dd>
+                <dt><span>Equipment</span></dt>
+                <dd>
+                    <span *ngFor="let equipment of room.equipment; let last = last">
+                        <a [routerLink]="['/equipment', equipment?.id, 'view' ]">{{equipment.name}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/room', room.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

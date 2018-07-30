@@ -1,0 +1,32 @@
+entity Room {
+	name String,
+    occupancyLimit Integer,
+    available Boolean
+}
+
+entity Equipment {
+	name String
+}
+
+entity Reservation {
+    title String,
+    startDateTime Instant,
+    endDateTime Instant   
+}
+
+entity Building {
+	name String
+}
+
+relationship ManyToOne {
+	Room{building(name)} to Building,
+    Reservation{room(name)} to Room,
+	Reservation{user(login)} to User	
+}
+
+relationship ManyToMany {
+    Room{equipment(name)} to Equipment{room}
+}
+
+
+paginate Room, Reservation with infinite-scroll
